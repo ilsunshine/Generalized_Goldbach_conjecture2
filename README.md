@@ -20,10 +20,10 @@ $$
 g(n)=(-1)^{\omega(n)}.
 $$
 
-For $s,t\in\{-1,+1\}$, the ordered representation count is
+For $s,t\in\lbrace-1,+1\rbrace$, the ordered representation count is
 
 $$
-R_{st}(N)=\#\{1\le a<N:g(a)=s,\ g(N-a)=t\}.
+R_{st}(N)=\operatorname{card}\left\lbrace 1\le a<N:g(a)=s,\ g(N-a)=t\right\rbrace.
 $$
 
 The question is whether, and how often, each of the four sign patterns occurs among decompositions $N=a+(N-a)$. Representations are ordered: swapping the summands generally gives a different representation.
@@ -68,7 +68,7 @@ for almost all target integers, with a stronger quantitative exceptional-set est
 
 ### 4. Questions for the ordinary Möbius function
 
-The paper also studies the nine additive sign patterns arising from $\mu(n)\in\{-1,0,+1\}$. It distinguishes unconditional estimates for patterns involving zero from the unresolved correlation questions governing pointwise asymptotics for the four nonzero patterns.
+The paper also studies the nine additive sign patterns arising from $\mu(n)\in\lbrace-1,0,+1\rbrace$. It distinguishes unconditional estimates for patterns involving zero from the unresolved correlation questions governing pointwise asymptotics for the four nonzero patterns.
 
 ## Approach and significance
 
