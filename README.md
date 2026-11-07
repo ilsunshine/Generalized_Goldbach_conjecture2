@@ -14,69 +14,72 @@ The PDF contains the definitions, theorem statements, proofs, references, and ap
 
 ## Mathematical setting
 
-Let $\omega(n)$ be the number of **distinct** prime factors of a positive integer $n$, with $\omega(1)=0$, and define
+Formulas in this overview use plain-text notation and do not require a mathematical rendering extension. The PDF contains the typeset mathematical notation.
 
-$$
-g(n)=(-1)^{\omega(n)}.
-$$
+Let `omega(n)` be the number of **distinct** prime factors of a positive integer `n`, with `omega(1) = 0`, and define
 
-For $s,t\in\lbrace-1,+1\rbrace$, the ordered representation count is
+```text
+g(n) = (-1)^omega(n)
+```
 
-$$
-R_{st}(N)=\operatorname{card}\left\lbrace 1\le a<N:g(a)=s,\ g(N-a)=t\right\rbrace.
-$$
+For an integer `N >= 2` and signs `s, t` in `{-1, +1}`, write `R(s, t; N)` for the paper's ordered representation count `R_st(N)`:
 
-The question is whether, and how often, each of the four sign patterns occurs among decompositions $N=a+(N-a)$. Representations are ordered: swapping the summands generally gives a different representation.
+```text
+R(s, t; N) = number of integers a satisfying all of:
+            1 <= a < N, g(a) = s, and g(N-a) = t
+```
 
-The function $g$ is multiplicative but not completely multiplicative. It differs from the Liouville function, which counts prime factors with multiplicity, and from the ordinary Möbius function, which vanishes on integers divisible by a prime square.
+The question is whether, and how often, each of the four sign patterns occurs among decompositions `N = a + (N-a)`. Representations are ordered: swapping the summands generally gives a different representation.
+
+The function `g` is multiplicative but not completely multiplicative. It differs from the Liouville function, which counts prime factors with multiplicity, and from the ordinary Möbius function, which vanishes on integers divisible by a prime square.
 
 ## Main results
 
 ### 1. Quantitative bounds for every sufficiently large integer
 
-The manuscript proves that, for all sufficiently large $N$,
+The manuscript proves that, for all sufficiently large integers `N`,
 
-$$
-R_{--}(N),R_{++}(N)\ge\frac{N}{128(\log N)^3},
-\qquad
-R_{-+}(N)=R_{+-}(N)\ge\frac{N}{64(\log N)^3}.
-$$
+```text
+R(-1, -1; N) >= N / (128 * (log N)^3)
+R(+1, +1; N) >= N / (128 * (log N)^3)
+R(-1, +1; N) = R(+1, -1; N) >= N / (64 * (log N)^3)
+```
 
-Here $\log$ is the natural logarithm. The starting point for these quantitative bounds is not evaluated numerically in the manuscript; the explicit existence result below is a separate theorem.
+Here `log` is the natural logarithm, `^` denotes exponentiation, and `*` denotes multiplication. The starting point for these quantitative bounds is not evaluated numerically in the manuscript; the explicit existence result below is a separate theorem.
 
 ### 2. Explicit existence and complete exceptional sets
 
-For every integer $N\ge18$, all four ordered sign patterns occur. The complete exceptional sets for integers $N\ge2$ are:
+For every integer `N >= 18`, all four ordered sign patterns occur. The complete exceptional sets for integers `N >= 2` are:
 
-| Pattern | Integers $N$ for which the representation count is zero |
+| Pattern | Integers N for which the representation count is zero |
 |---|---|
-| $(-1,-1)$ | $2,3$ |
-| $(-1,+1)$ and $(+1,-1)$ | $2,7$ |
-| $(+1,+1)$ | $3,4,5,6,8,9,10,14,17$ |
+| `(-1, -1)` | 2, 3 |
+| `(-1, +1)` and `(+1, -1)` | 2, 7 |
+| `(+1, +1)` | 3, 4, 5, 6, 8, 9, 10, 14, 17 |
 
-Thus the optimal common eventual threshold is $18$. The individual eventual thresholds are $4$ for the negative-negative pattern, $8$ for the mixed patterns, and $18$ for the positive-positive pattern. These are eventual thresholds, not assertions that every smaller integer is exceptional.
+Thus the optimal common eventual threshold is 18. The individual eventual thresholds are 4 for the negative-negative pattern, 8 for the mixed patterns, and 18 for the positive-positive pattern. These are eventual thresholds, not assertions that every smaller integer is exceptional.
 
 ### 3. One-quarter asymptotics for almost all integers
 
 The manuscript establishes
 
-$$
-R_{st}(N)=\frac N4+o(N)
-$$
+```text
+R(s, t; N) = N / 4 + o(N)
+```
 
-for almost all target integers, with a stronger quantitative exceptional-set estimate in the paper. A pointwise one-quarter asymptotic for **every** sufficiently large integer is not proved.
+for almost all target integers, with a stronger quantitative exceptional-set estimate in the paper. Here `o(N)` is an error whose ratio to `N` tends to zero. A pointwise one-quarter asymptotic for **every** sufficiently large integer is not proved.
 
 ### 4. Questions for the ordinary Möbius function
 
-The paper also studies the nine additive sign patterns arising from $\mu(n)\in\lbrace-1,0,+1\rbrace$. It distinguishes unconditional estimates for patterns involving zero from the unresolved correlation questions governing pointwise asymptotics for the four nonzero patterns.
+The paper also studies the nine additive sign patterns arising from the ordinary Möbius function `mu(n)`, whose values are in `{-1, 0, +1}`. It distinguishes unconditional estimates for patterns involving zero from the unresolved correlation questions governing pointwise asymptotics for the four nonzero patterns.
 
 ## Approach and significance
 
-The arguments combine arithmetic identities and integer decompositions, mean-value and exponential-sum estimates, rigidity of missing sign patterns, finite covering chains, and finite integer verification. For explicit existence, the proof separates the infinite range $N\ge100000$ from an exhaustive check of $2\le N<100000$.
+The arguments combine arithmetic identities and integer decompositions, mean-value and exponential-sum estimates, rigidity of missing sign patterns, finite covering chains, and finite integer verification. For explicit existence, the proof separates the infinite range `N >= 100000` from an exhaustive check of `2 <= N < 100000`.
 
 The project connects multiplicative structure with additive representation problems. Its explicit classification gives exact small exceptions and sharp eventual existence thresholds, while the quantitative and almost-all results describe how frequently representations occur. It also highlights why density information alone does not settle an additive representation problem.
 
-This is a Goldbach-**type** problem for arithmetic sign sets, not a proof of the classical Goldbach conjecture. A summand with $g(n)=-1$ need not be prime.
+This is a Goldbach-**type** problem for arithmetic sign sets, not a proof of the classical Goldbach conjecture. A summand with `g(n) = -1` need not be prime.
 
 ## Repository contents and scope
 
